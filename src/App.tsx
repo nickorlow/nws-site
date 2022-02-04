@@ -46,18 +46,25 @@ function App() {
     diff -= seconds * (1000);
 
     return (
-        <div className="App">
-          <header className="App-header">
-            <img src={NWSLogo} alt="nws-logo" />
+        <div className="App" >
+            <img src={NWSLogo} alt="nws-logo" height={500} />
+            <h1>Nick Web Services</h1>
+            <p style={{marginBottom: 40, maxWidth: 500}}>Nick Web Services is a hosting service based out of Austin, Texas. It is committed
+            to achieving maximum uptime with better performance and a lower cost than any of the major cloud services.</p>
+
+            <h3>System Status</h3>
             <p>
               NWS has had {uptime}% uptime since {(new Date(setup_time*1000)).toLocaleString()}
             </p>
-              {uptime === "100.000" &&
-                  <p>
-                      Continuous 100% SLA uptime for {days + " days, " + hours + " hours, " + mins + " minutes, " + seconds + " seconds"}
-                  </p>
-              }
-          </header>
+            {uptime === "100.000" &&
+                <p>
+                    Continuous 100% SLA uptime for {days + " days, " + hours + " hours, " + mins + " minutes, " + seconds + " seconds"}
+                </p>
+            }
+
+            <footer style={{marginTop: 50}}>
+                NWS is owned and operated by <a href={"http://nickorlow.com"}>Nicholas Orlowsky</a>.
+            </footer>
         </div>
       );
 }
