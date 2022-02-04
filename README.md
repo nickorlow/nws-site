@@ -1,3 +1,5 @@
+<img src="./src/static/images/NWS_Logo.png" alt="NWS Logo" width="200"/>
+
 # nws-site
 The offical website for Nick Web Services (aka NWS)
 
