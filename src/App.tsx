@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
     const today = new Date();
-    const setup_time = new Date(today.getFullYear(), today.getMonth() - 1, today.getDate());
+    const setup_time = new Date(today.getFullYear(), today.getMonth() - 1, today.getDate(), today.getHours(), today.getMinutes(), today.getSeconds(), today.getMilliseconds());
     const [monitors, setMonitors] = useState(new Array<any>());
 
     useEffect(() => {
