@@ -1,6 +1,23 @@
 .App {
-  text-align: center;
   display: flex;
   align-items: center;
   flex-direction: column;
 }
+
+.low-severity {
+  background-color: #98fb98
+}
+
+.med-severity {
+  background-color: #eee8aa
+}
+
+.high-severity {
+  background-color: #f08080
+}
+
+.incident {
+  border-radius: 20px;
+  padding: .75rem;
+}
+

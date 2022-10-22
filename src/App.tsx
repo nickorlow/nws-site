@@ -2,51 +2,27 @@ import React, {useEffect, useState} from 'react';
 import NWSLogo from './static/images/NWS_Logo.png';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {Incident, UptimeResponse} from "./nws-api/types";
+import {getIncidents, getUptime} from "./nws-api/calls";
 
 function App() {
-    const today = new Date();
-    const setup_time = new Date(today.getFullYear(), today.getMonth() - 1, today.getDate());
-    const [monitors, setMonitors] = useState(new Array<any>());
+    const [uptime, setUptime] = useState<UptimeResponse>({datacenters: [], services:[]});
+    const [incidents, setIncidents] = useState<Incident[]>([]);
+
+    const fetchUptime = async () => {
+        let resp: UptimeResponse = await getUptime();
+        setUptime(resp);
+    }
+
+    const fetchIncidents = async () => {
+        let resp: Incident[] = await getIncidents();
+        setIncidents(resp);
+    }
 
     useEffect(() => {
-        var myHeaders = new Headers();
-        myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
-
-        var urlencoded = new URLSearchParams();
-        urlencoded.append("api_key", "ur1612363-492fa5df2a31fab5b52171b4");
-
-        urlencoded.append("custom_uptime_ranges", (setup_time.valueOf() / 1000) + "_" + (today.valueOf() / 1000));
-        urlencoded.append("all_time_uptime_ratio", "1");
-
-        var requestOptions = {
-            method: 'POST',
-            headers: myHeaders,
-            body: urlencoded,
-            redirect: 'follow'
-        };
-
-        // @ts-ignore
-        fetch("https://api.uptimerobot.com/v2/getMonitors", requestOptions)
-            .then(response => response.json().then(json => {
-                setMonitors(json.monitors);
-            }))
-            .then(result => console.log(result))
-            .catch(error => console.log('error', error));
+        fetchUptime();
+        fetchIncidents();
     }, []);
-
-    let diff = new Date().getTime() - setup_time.getTime();
-
-    let days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    diff -= days * (1000 * 60 * 60 * 24);
-
-    let hours = Math.floor(diff / (1000 * 60 * 60));
-    diff -= hours * (1000 * 60 * 60);
-
-    let mins = Math.floor(diff / (1000 * 60));
-    diff -= mins * (1000 * 60);
-
-    let seconds = Math.floor(diff / (1000));
-    diff -= seconds * (1000);
 
     return (
         <div className="App">
@@ -71,17 +47,13 @@ function App() {
                                 <th>Uptime (All Time)</th>
                                 <th>Current Status</th>
                             </tr>
-                            {monitors.map((e) => {
-                                let name_parts = e.friendly_name.split('.');
-                                if (name_parts[0] === 'datacenter') {
+                            {uptime.datacenters.map((e) => {
                                     return (<tr>
-                                        <td>{name_parts[1]}</td>
-                                        <td>{e.custom_uptime_ranges}%</td>
-                                        <td>{e.all_time_uptime_ratio}%</td>
-                                        <td>{e.status === 2 ? 'Up' : 'Down'}</td>
+                                        <td>{e.name}</td>
+                                        <td>{e.uptimeMonth}%</td>
+                                        <td>{e.uptimeAllTime}%</td>
+                                        <td>{e.isUp ? 'Up' : 'Down'}</td>
                                     </tr>);
-
-                                }
                             })}
                         </table>
                     </p>
@@ -95,21 +67,41 @@ function App() {
                                 <th>Uptime (All Time)</th>
                                 <th>Current Status</th>
                             </tr>
-                            {monitors.map((e) => {
-                                let name_parts = e.friendly_name.split('.');
-                                if (name_parts[0] === 'service') {
+                            {uptime.services.map((e) => {
+
                                     return (<tr>
-                                        <td><a href={e.url}>{name_parts[1]}</a></td>
-                                        <td>{e.custom_uptime_ranges}%</td>
-                                        <td>{e.all_time_uptime_ratio}%</td>
-                                        <td>{e.status === 2 ? 'Up' : 'Down'}</td>
+                                        <td><a href={e.url}>{e.name}</a></td>
+                                        <td>{e.uptimeMonth}%</td>
+                                        <td>{e.uptimeAllTime}%</td>
+                                        <td>{e.isUp ? 'Up' : 'Down'}</td>
                                     </tr>);
 
-                                }
                             })}
                         </table>
                     </p>
+
                 </div>
+
+            </div>
+            <div style={{width: '75vw'}}>
+                <hr/>
+            </div>
+            <div>
+                <h3>Service Alerts</h3>
+                {incidents.map((e) => {
+                    let severityClass: string = e.severity == 0 ? 'low' : (e.severity == 1 ? 'med' : 'high');
+                    let severityString: string = e.severity == 0 ? 'Low' : (e.severity == 1 ? 'Medium' : 'High');
+                    return (
+                        <div className={`row text-left incident ${severityClass}-severity`} style={{width: '75vw'}}>
+                            <p className={"col-10"}><b>{e.title}</b></p>
+                            <p className={"col-2"}><b>{severityString} Severity</b></p>
+                            <p className={"mb-0"}>{e.description}</p>
+                        </div>
+                    );
+                })}
+                {incidents.length == 0 &&  <div className={`row text-center`} style={{width: '75vw'}}>
+                    <h5 className={"col-12"}>No service alerts.</h5>
+                </div>}
             </div>
             <footer style={{margin: 25}}>
                 NWS is owned and operated by <a href={"http://nickorlow.com"}>Nicholas Orlowsky</a>.
