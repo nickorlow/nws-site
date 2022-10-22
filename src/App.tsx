@@ -6,6 +6,7 @@ import {Incident, UptimeResponse} from "./nws-api/types";
 import {getIncidents, getUptime} from "./nws-api/calls";
 
 function App() {
+
     const [uptime, setUptime] = useState<UptimeResponse>({datacenters: [], services:[]});
     const [incidents, setIncidents] = useState<Incident[]>([]);
 
