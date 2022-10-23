@@ -16,8 +16,19 @@
   background-color: #f08080
 }
 
-.incident {
+.severity-label {
+  border-radius: 10px;
+  text-align: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.nws-card {
   border-radius: 20px;
+  background-color: #eee;
   padding: .75rem;
 }
+
 

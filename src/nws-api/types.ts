@@ -9,7 +9,8 @@ export type UptimeRecord = {
 
 export type UptimeResponse = {
     datacenters: UptimeRecord[],
-    services: UptimeRecord[]
+    services: UptimeRecord[],
+    lastUpdated: string
 };
 
 export type Blog = {
