@@ -1,14 +1,59 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import * as React from "react";
+import * as ReactDOM from "react-dom";
+import {
+    createBrowserRouter,
+    RouterProvider,
+} from "react-router-dom";
+import StatusPage from "./components/StatusPage";
+import reportWebVitals from "./reportWebVitals";
+import "./index.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import UptimeCard from "./components/UptimeCard";
+import Footer from "./components/Footer";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+function Layout (props: {children: any}) {
+    return (
+        <div>
+            {props.children}
+            <Footer/>
+        </div>
+    );
+}
+
+const router = createBrowserRouter([
+    {
+        path: "/",
+        element:
+            <Layout>
+                <StatusPage/>
+            </Layout>
+    },
+    {
+        path: "blog",
+        element:
+            <Layout>
+                <StatusPage/>
+            </Layout>
+    },
+    {
+        path: "blogs",
+        element:
+            <Layout>
+                <StatusPage/>
+            </Layout>
+    },
+    {
+        path: "*",
+        element:
+            <Layout>
+                <StatusPage/>
+            </Layout>
+    },
+]);
+
+// @ts-ignore
+ReactDOM.createRoot(document.getElementById("root")).render(
+    <RouterProvider router={router} />
 );
 
 // If you want to start measuring performance in your app, pass a function
