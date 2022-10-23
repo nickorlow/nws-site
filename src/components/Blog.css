@@ -1,0 +1,11 @@
+.blog-card {
+    transition: 1s;
+    width: 80%;
+    background-color: #eee;
+    border-radius: 20px;
+    overflow: clip;
+}
+
+.blog-card:hover {
+    transform: translateY(-10px);
+}
