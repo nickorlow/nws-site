@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="03fafda4-e2c1-4602-a731-a2f96e84badd" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/IncidentCard.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/UptimeCard.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nws-api/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/nws-api/types.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +16,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -69,7 +68,8 @@
       <workItem from="1643936709048" duration="547000" />
       <workItem from="1648500425230" duration="246000" />
       <workItem from="1658028513357" duration="2964000" />
-      <workItem from="1666469240565" duration="6879000" />
+      <workItem from="1666469240565" duration="7361000" />
+      <workItem from="1666543043382" duration="439000" />
     </task>
     <servers />
   </component>
