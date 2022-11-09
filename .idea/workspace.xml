@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="03fafda4-e2c1-4602-a731-a2f96e84badd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Blog.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Blogs.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nws-api/calls.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/nws-api/calls.ts" afterDir="false" />
-    </list>
+    <list default="true" id="03fafda4-e2c1-4602-a731-a2f96e84badd" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -75,7 +66,7 @@
       <workItem from="1648500425230" duration="246000" />
       <workItem from="1658028513357" duration="2964000" />
       <workItem from="1666469240565" duration="7361000" />
-      <workItem from="1666543043382" duration="3674000" />
+      <workItem from="1666543043382" duration="3699000" />
     </task>
     <servers />
   </component>
