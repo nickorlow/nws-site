@@ -29,7 +29,39 @@ export type Incident = {
 };
 
 enum IncidentSeverity {
-  LOW,
-  MEDIUM,
-  HIGH
+    LOW,
+    MEDIUM,
+    HIGH
 };
+
+// Below is primarily for user-facing things
+
+export type Account = {
+  id?: string,
+  email: string,
+  name?: string,
+  password?: string,
+  status?: string
+};
+
+export type Service = {
+    serviceId: string,
+    serviceName: string,
+    namespace: string,
+    containerUrl: string,
+    ownerId: string
+}
+
+export type ApiError = {
+    StatusCode: number,
+    ErrorMessage: string
+};
+
+export type SessionKey = {
+    id: string,
+    expiry: Date,
+    accountId: string,
+    ip: string
+};
+
+

@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="03fafda4-e2c1-4602-a731-a2f96e84badd" name="Default Changelist" comment="" />
+    <list default="true" id="03fafda4-e2c1-4602-a731-a2f96e84badd" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/CreateCruisePage.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/DashboardPage.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Login.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/LoginPage.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/NotFoundPage.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/RegisterPage.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/RegisterPage.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/VerifyPage.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/VerifyPage.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nws-api/hooks.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nws-api/calls.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/nws-api/calls.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nws-api/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/nws-api/types.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,9 +26,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="HTTP Request" />
+        <option value="CSS File" />
         <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
-        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -28,22 +45,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.path.for.package.eslint" value="project" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
-    <property name="vue.rearranger.settings.migration" value="true" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/home/nickorlow/programmming/personal/nws-site/src/components",
+    "list.type.of.created.stylesheet": "CSS",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "/home/nickorlow/programmming/personal/nws-site/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components" />
       <recent name="$PROJECT_DIR$/src/static/images" />
     </key>
   </component>
@@ -67,6 +81,7 @@
       <workItem from="1658028513357" duration="2964000" />
       <workItem from="1666469240565" duration="7361000" />
       <workItem from="1666543043382" duration="3699000" />
+      <workItem from="1668047509596" duration="7310000" />
     </task>
     <servers />
   </component>

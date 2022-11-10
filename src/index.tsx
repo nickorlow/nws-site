@@ -10,26 +10,57 @@ import "./index.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import UptimeCard from "./components/UptimeCard";
 import Footer from "./components/Footer";
-import {Nav, Navbar, NavbarBrand} from "react-bootstrap";
+import {Nav, Navbar, NavbarBrand, NavDropdown} from "react-bootstrap";
 import NWSLogo from "./static/images/NWS_Logo.png";
 import Blogs from "./components/Blogs";
+import NotFoundPage from "./components/NotFoundPage";
+import LoginPage from "./components/LoginPage";
+import RegisterPage from "./components/RegisterPage";
+import VerifyPage from "./components/VerifyPage";
+import DashboardPage from "./components/DashboardPage";
+import CreateCruisePage from "./components/CreateCruisePage";
 
 function Layout (props: {children: any}) {
     return (
         <div>
-            <Navbar sticky={"top"} style={{backgroundColor: "#eee", paddingLeft: 100, paddingRight: 100}}>
-                <NavbarBrand>
-                    <img src={NWSLogo} alt="nws-logo" style={{width: 120}}/>
-                </NavbarBrand>
-                <NavLink className={"nav-lnk"} to={"/"}>
-                    Home
-                </NavLink>
-                <NavLink className={"nav-lnk"} to={"/status"}>
-                    Status
-                </NavLink>
-                <NavLink className={"nav-lnk"} to={"/blogs"}>
-                    Blog
-                </NavLink>
+            <Navbar sticky={"top"} style={{backgroundColor: "#eee", paddingLeft: 100, paddingRight: 100}} className={"row"}>
+                <div className={"col-10"}>
+                    <NavbarBrand>
+                        <img src={NWSLogo} alt="nws-logo" style={{width: 120}}/>
+                    </NavbarBrand>
+                    <NavLink className={"nav-lnk"} to={"/"}>
+                        Home
+                    </NavLink>
+                    <NavLink className={"nav-lnk"} to={"/status"}>
+                        Status
+                    </NavLink>
+                </div>
+                {/*<NavLink className={"nav-lnk"} to={"/blogs"}>*/}
+                {/*    Blog*/}
+                {/*</NavLink>*/}
+                <div className={"col-2"}>
+                    { localStorage.getItem("session_key") === null &&
+                        (
+                            <NavLink className={"nav-lnk"} to={"/login"}>
+                                Login
+                            </NavLink>
+
+                        )
+                    }
+                    { localStorage.getItem("session_key") === null ||
+                        (
+                            <NavDropdown title={"Account"} className={"nav-lnk"}>
+                                <NavLink className={"nav-lnk"} to={"/dashboard"}>
+                                    Dashboard
+                                </NavLink>
+                                <hr/>
+                                <NavLink className={"nav-lnk"} to={"/login"} onClick={()=>{localStorage.removeItem("session_key")}}>
+                                    Logout
+                                </NavLink>
+                            </NavDropdown>
+                        )
+                    }
+                </div>
             </Navbar>
             {props.children}
             <Footer/>
@@ -67,10 +98,45 @@ const router = createBrowserRouter([
             </Layout>
     },
     {
+        path: "login",
+        element:
+            <Layout>
+                <LoginPage/>
+            </Layout>
+    },
+    {
+        path: "verify",
+        element:
+            <Layout>
+                <VerifyPage/>
+            </Layout>
+    },
+    {
+        path: "dashboard",
+        element:
+            <Layout>
+                <DashboardPage/>
+            </Layout>
+    },
+    {
+        path: "register",
+        element:
+            <Layout>
+                <RegisterPage/>
+            </Layout>
+    },
+    {
+        path: "cruise/new",
+        element:
+            <Layout>
+                <CreateCruisePage/>
+            </Layout>
+    },
+    {
         path: "*",
         element:
             <Layout>
-                <StatusPage/>
+                <NotFoundPage/>
             </Layout>
     },
 ]);
