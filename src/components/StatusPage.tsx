@@ -82,7 +82,7 @@ export default function StatusPage() {
                         <IncidentCard incident={e}/>
                     );
                 })}
-                {(incidents !== null || incidents.length == 0) &&
+                {(incidents !== null && incidents.length == 0) &&
                     <div className={`row text-center`} style={{width: '75vw'}}>
                         <h5 className={"col-12"}>No service alerts.</h5>
                     </div>
