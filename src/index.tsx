@@ -13,7 +13,7 @@ import Footer from "./components/Footer";
 import {Nav, Navbar, NavbarBrand, NavDropdown} from "react-bootstrap";
 import NWSLogo from "./static/images/NWS_Logo.png";
 import Blogs from "./components/Blogs";
-import NotFoundPage from "./components/NotFoundPage";
+//import NotFoundPage from "./components/NotFoundPage";
 import LoginPage from "./components/LoginPage";
 import RegisterPage from "./components/RegisterPage";
 import VerifyPage from "./components/VerifyPage";
@@ -136,7 +136,7 @@ const router = createBrowserRouter([
         path: "*",
         element:
             <Layout>
-                <NotFoundPage/>
+               
             </Layout>
     },
 ]);
