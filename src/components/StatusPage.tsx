@@ -11,7 +11,7 @@ import "../App.css";
 export default function StatusPage() {
 
     const [uptime, setUptime] = useState<UptimeResponse>({datacenters: [], services: [], lastUpdated: ""});
-    const [incidents, setIncidents] = useState<Incident[]>([]);
+    //const [incidents, setIncidents] = useState<Incident[]>([]);
 
     const fetchUptime = async () => {
         let resp: UptimeResponse = await getUptime();
@@ -19,8 +19,8 @@ export default function StatusPage() {
     }
 
     const fetchIncidents = async () => {
-        let resp: Incident[] = await getIncidents();
-        setIncidents(resp);
+        //let resp: Incident[] = await getIncidents();
+        //setIncidents(resp);
     }
 
     useEffect(() => {
@@ -77,16 +77,14 @@ export default function StatusPage() {
 
             <div>
                 <h3>Service Alerts</h3>
-                {incidents !== null && incidents.map((e) => {
-                    return (
-                        <IncidentCard incident={e}/>
-                    );
-                })}
-                {(incidents !== null && incidents.length == 0) &&
-                    <div className={`row text-center`} style={{width: '75vw'}}>
-                        <h5 className={"col-12"}>No service alerts.</h5>
-                    </div>
-                }
+                
+                        <IncidentCard incident={{
+                            id: 0,
+                            title: "NWS Complete Service Outage",
+                            description: "Due to issues with our ISP at our Texas datacenter, NWS Texas was taken offline. Due to unavalibility of staff, NWS was unable to divert traffic to other datacenters. This resulted in an outage lasting 5 days. Currently, the NWS API is partially down, however hosted NWS services are back up. An incident report will be written up within a week.",
+                            severity: 2
+                        }}/>
+                  
             </div>
         </div>
     );
