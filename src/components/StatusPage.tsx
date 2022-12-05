@@ -77,12 +77,12 @@ export default function StatusPage() {
 
             <div>
                 <h3>Service Alerts</h3>
-                {incidents.map((e) => {
+                {incidents !== null && incidents.map((e) => {
                     return (
                         <IncidentCard incident={e}/>
                     );
                 })}
-                {incidents.length == 0 &&
+                {(incidents !== null || incidents.length == 0) &&
                     <div className={`row text-center`} style={{width: '75vw'}}>
                         <h5 className={"col-12"}>No service alerts.</h5>
                     </div>
