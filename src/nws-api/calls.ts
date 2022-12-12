@@ -10,7 +10,7 @@ export async function getIncidents(): Promise<Incident[]> {
     let response: Response = await fetch('https://api-nws.nickorlow.com/incidents');
     try {
         let incidents: Incident[] = await response.json();
-        if(incidents === null || incidents === undefined) return [];
+        if(incidents === null || incidents === undefined || !Array.isArray(incidents)) return [];
         return incidents;
     } catch (e) {
         return [];
