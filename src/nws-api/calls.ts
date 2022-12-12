@@ -8,7 +8,12 @@ export async function getUptime(): Promise<UptimeResponse> {
 
 export async function getIncidents(): Promise<Incident[]> {
     let response: Response = await fetch('https://api-nws.nickorlow.com/incidents');
-    let incidents: Incident[] = await response.json();
-    return incidents;
+    try {
+        let incidents: Incident[] = await response.json();
+        if(incidents === null || incidents === undefined) return [];
+        return incidents;
+    } catch (e) {
+        return [];
+    }
 }
 
