@@ -1,0 +1,32 @@
+.reg-box {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #aaa;
+    border-radius: 10px;
+
+    align-self: center;
+    justify-self: center;
+
+    width: 500px;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.reg-label {
+    margin: 0;
+}
+
+.reg-button {
+    border-radius: 10px;
+    border-width: 0px;
+
+    background-color: cornflowerblue;
+    color: white;
+
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 3px
+}

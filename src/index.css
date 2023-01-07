@@ -11,3 +11,16 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.nav-lnk {
+  font-weight: bold;
+  color: black;
+  text-decoration: none;
+  padding-left: 30px;
+  font-size: 1.1rem;
+  transition: .5s;
+}
+
+.nav-lnk:hover {
+  color: #F7BA00;
+}
