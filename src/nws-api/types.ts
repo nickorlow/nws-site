@@ -3,6 +3,9 @@ export type UptimeRecord = {
     url: string,
     uptimeMonth: number,
     uptimeAllTime: number,
+    uptimeYtd: number,
+    averageResponseTime: number,
+    monitorStart: string,
     isUp: boolean,
     undergoingMaintenance: boolean
 };
@@ -10,6 +13,7 @@ export type UptimeRecord = {
 export type UptimeResponse = {
     datacenters: UptimeRecord[],
     services: UptimeRecord[],
+    competitors: UptimeRecord[],
     lastUpdated: string
 };
 
@@ -64,4 +68,8 @@ export type SessionKey = {
     ip: string
 };
 
-
+export type Namespace = {
+    id: string,
+    accountId: string,
+    name: string
+}

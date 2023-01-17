@@ -1,4 +1,4 @@
-import {Blog, Incident, Service, SessionKey, UptimeResponse} from "./types";
+import {Blog, Incident, Namespace, Service, SessionKey, UptimeResponse} from "./types";
 
 export async function getUptime(): Promise<UptimeResponse> {
     let response: Response = await fetch('https://api-nws.nickorlow.com/uptime');
@@ -40,4 +40,12 @@ export async function getSessionKey(accountId: string, password: string): Promis
     return sessionKey;
 }
 
-
+export async function getNamespaces(accountId: string, skey: SessionKey): Promise<Namespace[]> {
+    let response: Response = await fetch('https://api-nws.nickorlow.com/'+accountId+'/namespaces', {
+        headers: {
+            Authorization: skey.id
+        }
+    });
+    let namespaces: Namespace[] = await response.json();
+    return namespaces;
+}

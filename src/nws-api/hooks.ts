@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {Account, Service, SessionKey} from "./types";
+import {Account, Namespace, Service, SessionKey} from "./types";
 
 export function useNonLoggedInRedirect() {
     useEffect(()=>{
@@ -56,6 +56,72 @@ export function useGetAccountServices() {
     }, []);
 
     return services;
+}
+
+export function useGetAccountNamespaces() {
+    const [namespaces, setNamespaces] = useState<Namespace[]>([]);
+
+    useEffect(() => {
+        let rawSession: string | null = localStorage.getItem("session_key");
+
+        if(rawSession != null) {
+            let session: SessionKey = JSON.parse(rawSession);
+            fetch("https://api-nws.nickorlow.com/Account/" + session.accountId + "/namespaces",
+                {
+                    headers: {
+                        "Authorization": btoa(session.accountId + ":" + session.id)
+                    }
+                }).then((response)=>{
+                response.json().then((svcs: Namespace[]) => {
+                    console.log(svcs)
+                    setNamespaces(svcs);
+                });
+            });
+        }
+    }, []);
+
+    return namespaces;
+}
+
+export function useNWSAuthKey() {
+    const [key, setKey] = useState('');
+    useEffect(() => {
+        let rawSession: string | null = localStorage.getItem("session_key");
+
+        if(rawSession != null) {
+            let session: SessionKey = JSON.parse(rawSession);
+            setKey(btoa(session.accountId + ":" + session.id))
+        }
+    }, []);
+
+    return key;
+}
+
+export function useGetServicesInNamespace() {
+    const [services, setServices] = useState<Service[]>([]);
+    const [ns, setNs] = useState<Namespace | null>(null);
+    useEffect(() => {
+        console.log(ns !== null ? ns.id : "null")
+        if(ns === null) return;
+        let rawSession: string | null = localStorage.getItem("session_key");
+
+        if(rawSession != null) {
+            let session: SessionKey = JSON.parse(rawSession);
+            fetch("https://api-nws.nickorlow.com/Account/" + session.accountId + "/namespaces/" + ns.id + "/services",
+                {
+                    headers: {
+                        "Authorization": btoa(session.accountId + ":" + session.id)
+                    }
+                }).then((response)=>{
+                response.json().then((svcs: Service[]) => {
+                    console.log(svcs)
+                    setServices(svcs);
+                });
+            });
+        }
+    }, [ns]);
+
+    return {setNs, services, ns};
 }
 
 export function useNWSAccount() {

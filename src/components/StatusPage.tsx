@@ -10,7 +10,7 @@ import "../App.css";
 
 export default function StatusPage() {
 
-    const [uptime, setUptime] = useState<UptimeResponse>({datacenters: [], services: [], lastUpdated: ""});
+    const [uptime, setUptime] = useState<UptimeResponse>({datacenters: [], services: [], competitors: [], lastUpdated: ""});
     const [incidents, setIncidents] = useState<Incident[]>([]);
 
     const fetchUptime = async () => {
@@ -29,35 +29,15 @@ export default function StatusPage() {
     }, []);
 
     return(
-        <div className="App">
-
-            <div className={"w-100 row"}>
-                <div className={"col-md-6 d-flex justify-content-center flex-column align-items-center"}>
-                    <img src={NWSLogo} alt="nws-logo" style={{width: "70%"}}/>
-                </div>
-                <div className={"col-md-6 text-center d-flex justify-content-center flex-column align-items-center"}>
-                    <h1>Nick Web Services</h1>
-                    <p style={{maxWidth: 500}} className={"col-md-6 text-center"}>
-                        Nick Web Services is a hosting service based out of
-                        Austin, Texas. It is committed
-                        to achieving maximum uptime with better performance and a lower cost than any of the major cloud
-                        services.
-                    </p>
-                </div>
-            </div>
-
-            <div style={{width: '75vw'}}>
-                <hr/>
-            </div>
-
+        <div className="App" style={{padding: 20}}>
             <div className={"text-left row"} style={{width: '75vw'}}>
-                <h2>NWS System Status</h2>
+                <h1>NWS System Status</h1>
                 <p>Last updated at {new Date(uptime.lastUpdated).toLocaleString()}</p>
                 <div className={"col-md-6 col-12"}>
                     <h3>Service Status</h3>
                     {uptime.services.map((e) => {
                         return (
-                            <UptimeCard uptime={e}/>
+                            <UptimeCard uptime={e} isService={true}/>
                         );
                     })}
                 </div>
@@ -65,7 +45,7 @@ export default function StatusPage() {
                     <h3>Datacenter Status</h3>
                     {uptime.datacenters.map((e) => {
                         return (
-                            <UptimeCard uptime={e}/>
+                            <UptimeCard uptime={e} isService={false}/>
                         );
                     })}
                 </div>

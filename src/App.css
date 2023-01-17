@@ -16,7 +16,7 @@ input {
 }
 
 button {
-  border-radius: 10px;
+  border-radius: 10px !important;
   border-width: 0px;
 
   background-color: cornflowerblue;

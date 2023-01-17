@@ -11,7 +11,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import UptimeCard from "./components/UptimeCard";
 import Footer from "./components/Footer";
 import {Nav, Navbar, NavbarBrand, NavDropdown} from "react-bootstrap";
-import NWSLogo from "./static/images/NWS_Logo.png";
+import NWSLogo from "./static/images/NWS_Logo_Transparent.png";
 import Blogs from "./components/Blogs";
 import NotFoundPage from "./components/NotFoundPage";
 import LoginPage from "./components/LoginPage";
@@ -19,11 +19,12 @@ import RegisterPage from "./components/RegisterPage";
 import VerifyPage from "./components/VerifyPage";
 import DashboardPage from "./components/DashboardPage";
 import CreateCruisePage from "./components/CreateCruisePage";
+import HomePage from "./components/HomePage";
 
 function Layout (props: {children: any}) {
     return (
         <div>
-            <Navbar sticky={"top"} style={{backgroundColor: "#eee", paddingLeft: 100, paddingRight: 100}} className={"row"}>
+            <Navbar sticky={"top"} style={{height: "8vh", backgroundColor: "#eee", paddingLeft: "5vw", paddingRight: "5vw", maxWidth:"100%"}} className={"row m-0"}>
                 <div className={"col-10"}>
                     <NavbarBrand>
                         <img src={NWSLogo} alt="nws-logo" style={{width: 120}}/>
@@ -38,7 +39,7 @@ function Layout (props: {children: any}) {
                 {/*<NavLink className={"nav-lnk"} to={"/blogs"}>*/}
                 {/*    Blog*/}
                 {/*</NavLink>*/}
-                <div className={"col-2"}>
+                <div className={"col-2 d-none d-md-block"}>
                     { localStorage.getItem("session_key") === null &&
                         (
                             <NavLink className={"nav-lnk"} to={"/login"}>
@@ -62,7 +63,9 @@ function Layout (props: {children: any}) {
                     }
                 </div>
             </Navbar>
-            {props.children}
+            <div style={{minHeight: "92vh"}}>
+             {props.children}
+            </div>
             <Footer/>
         </div>
     );
@@ -73,7 +76,7 @@ const router = createBrowserRouter([
         path: "/",
         element:
             <Layout>
-                <StatusPage/>
+                <HomePage/>
             </Layout>
     },
     {

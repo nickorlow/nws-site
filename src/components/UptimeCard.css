@@ -1,0 +1,28 @@
+.uptime-lnk {
+    font-weight: bolder;
+    color: #2f2f2f;
+    text-decoration: none;
+    transition: .5s;
+    cursor: pointer;
+}
+
+.uptime-lnk:hover {
+    color: #e08b0d;
+}
+
+.uptime-modal {
+    border-radius: 20px;
+    border-color: transparent;
+    background-color: #eee;
+    padding: 20px;
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+
+
+    width: 500px;
+    max-width: 100vw;
+}
