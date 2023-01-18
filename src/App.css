@@ -4,6 +4,40 @@
   flex-direction: column;
 }
 
+input {
+  border-radius: 10px;
+  border-color: #000;
+  border-width: 1px;
+  border-style: solid;
+
+  padding: 3px;
+
+
+}
+
+button {
+  border-radius: 10px !important;
+  border-width: 0px;
+
+  background-color: cornflowerblue;
+  color: white;
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 3px
+}
+
+p {
+  margin: 0 !important;
+}
+
+.error-banner {
+  background-color: #f08080;
+  border-radius: 10px;
+  padding: 3px;
+  height: max-content;
+}
+
 .low-severity {
   background-color: #98fb98
 }
