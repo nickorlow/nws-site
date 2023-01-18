@@ -2,22 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="03fafda4-e2c1-4602-a731-a2f96e84badd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/HomePage.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/UptimeCard.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/static/images/NWS_Logo_Transparent.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/CreateCruisePage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CreateCruisePage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DashboardPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DashboardPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/StatusPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/StatusPage.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/UptimeCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UptimeCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nws-api/calls.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/nws-api/calls.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nws-api/hooks.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/nws-api/hooks.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nws-api/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/nws-api/types.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,14 +33,11 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/static/images" />
-    <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
-    <property name="vue.rearranger.settings.migration" value="true" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ts.external.directory.path": "/home/nickorlow/programmming/personal/nws-site/node_modules/typescript/lib"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/static/images" />

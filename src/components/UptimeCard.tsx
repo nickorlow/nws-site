@@ -8,7 +8,7 @@ export default function UptimeCard(props: {uptime: UptimeRecord, isService: bool
     const [isModalOpen, setModalOpen] = useState(false);
     return(
         <div className={"nws-card row mb-2 m-0"} style={{maxWidth: '100%'}}>
-           <h3 className={"col-md-9 col-12 uptime-lnk"} onClick={()=>setModalOpen(true)}>{props.uptime.name}</h3>
+           <h4 className={"col-md-9 col-12 uptime-lnk"} onClick={()=>setModalOpen(true)}>{props.uptime.name}</h4>
 
             <div className={`col-md-3 col-12 d-flex d-md-none justify-content-start`}>
                 <p className={`fw-bold severity-label w-100

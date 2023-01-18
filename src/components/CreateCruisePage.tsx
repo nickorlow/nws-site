@@ -2,6 +2,7 @@ import {useState} from "react";
 import URI from "urijs";
 import {Namespace} from "../nws-api/types";
 import {useNWSAccount, useNWSAuthKey} from "../nws-api/hooks";
+import {useSearchParams} from "react-router-dom";
 
 export default function CreateCruisePage() {
     const [page, setPage] = useState('info');
@@ -16,18 +17,20 @@ export default function CreateCruisePage() {
     const authKey = useNWSAuthKey();
     const acct = useNWSAccount();
 
+    const [search, useSearch] = useSearchParams();
 
     function deploy() {
-        fetch("https://api-nws.nickorlow.com/Services/" + acct!.id + "/service",
+        fetch("https://api-nws.nickorlow.com/" + acct!.id + "/service",
             {
                 method: 'POST',
                 headers: {
-                    "Authorization": authKey
+                    "Authorization": authKey,
+                    "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
                     "serviceName": name,
                     "containerUrl": `ghcr.io/${owner}/${repo}`,
-                    "namespaceId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                    "namespaceId": search.get("namespaceId"),
                     "serviceUrl": hostUriInput,
                 })
             }).then((response)=> {
