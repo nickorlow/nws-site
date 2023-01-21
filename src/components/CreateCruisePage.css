@@ -1,0 +1,32 @@
+.pill {
+    padding: 1px;
+    transition: .5s;
+    text-align: center;
+}
+
+.pill-selected{
+    font-weight: bold;
+    border-radius: 20px;
+    background-color: #ffffff;
+
+}
+
+.pill-container {
+    padding: 2px;
+    border-radius: 20px;
+    background-color: #aaaa;
+}
+
+button {
+    padding: 5px;
+}
+
+.help-text {
+    font-style: italic;
+    margin: 0;
+    font-size: .9em;
+}
+
+.label-text{
+    margin: 1em 0 0;
+}

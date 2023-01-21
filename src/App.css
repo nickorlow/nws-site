@@ -9,10 +9,9 @@ input {
   border-color: #000;
   border-width: 1px;
   border-style: solid;
-
+  margin-bottom: 1px;
+  display: block;
   padding: 3px;
-
-
 }
 
 button {

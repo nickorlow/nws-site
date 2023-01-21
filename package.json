@@ -13,6 +13,7 @@
     "bootstrap": "^5.1.3",
     "react": "^18.2.0",
     "react-bootstrap": "^2.4.0",
+    "react-copy-code": "^2.1.2",
     "react-dom": "^18.2.0",
     "react-markdown": "^8.0.3",
     "react-modal": "^3.16.1",

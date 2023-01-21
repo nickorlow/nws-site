@@ -1,4 +1,4 @@
-import NWSLogo from "../static/images/NWS_Logo.png";
+import NWSLogo from "../static/images/NWS_Logo_Transparent.png";
 import UptimeCard from "./UptimeCard";
 import IncidentCard from "./IncidentCard";
 import Footer from "./Footer";
