@@ -20,49 +20,67 @@ import VerifyPage from "./components/VerifyPage";
 import DashboardPage from "./components/DashboardPage";
 import CreateCruisePage from "./components/CreateCruisePage";
 import HomePage from "./components/HomePage";
+import NavbarCollapse from "react-bootstrap/NavbarCollapse";
+import NavbarOffcanvas from "react-bootstrap/NavbarOffcanvas";
 
 function Layout (props: {children: any}) {
     return (
         <div>
-            <Navbar sticky={"top"} style={{height: "8vh", backgroundColor: "#eee", paddingLeft: "5vw", paddingRight: "5vw", maxWidth:"100%"}} className={"row m-0"}>
-                <div className={"col-10"}>
-                    <NavbarBrand>
-                        <img src={NWSLogo} alt="nws-logo" style={{width: 120}}/>
-                    </NavbarBrand>
-                    <NavLink className={"nav-lnk"} to={"/"}>
-                        Home
-                    </NavLink>
-                    <NavLink className={"nav-lnk"} to={"/status"}>
-                        Status
-                    </NavLink>
-                </div>
-                {/*<NavLink className={"nav-lnk"} to={"/blogs"}>*/}
-                {/*    Blog*/}
-                {/*</NavLink>*/}
-                <div className={"col-2 d-none d-md-block"}>
-                    { localStorage.getItem("session_key") === null &&
-                        (
-                            <NavLink className={"nav-lnk"} to={"/login"}>
-                                Login
-                            </NavLink>
+            <header  className={"w-100 sticky-top"}>
+            <div className={"w-100"}>
+                <Navbar sticky={"top"} expand="lg" className={"row justify-content-center m-0 p-0"} style={{backgroundColor: "#eee"}}>
+                    <div className={"row w-100"}>
+                        <div className="row w-100 d-md-none d-sm-block">
+                            <div className={"col-9"}>
+                                <Navbar.Brand href="/">
+                                    <img src={NWSLogo} width={150}/>
+                                </Navbar.Brand>
+                            </div>
+                            <div className={"col-2 ml-3 d-flex align-content-center justify-content-center"}>
+                                <Navbar.Toggle className={"h-50 align-self-center"} aria-controls="basic-navbar-nav"/>
+                            </div>
+                        </div>
+                        <div className={"d-md-block d-none col-2"}>
+                            <Navbar.Brand href="/">
+                                <img src={NWSLogo} width={150}/>
+                            </Navbar.Brand>
+                        </div>
+                        <Navbar.Collapse id="basic-navbar-nav" className={"col-10"}>
+                            <Nav className="row w-100 ml-5">
+                                <div className="col-md-4 row">
+                                    <NavLink className="col-sm-12 col-md-3 nav-lnk align-self-center" to={"/"}>Home</NavLink>
+                                    <NavLink className="col-sm-12 col-md-3 nav-lnk align-self-center" to={"/status"}>Status</NavLink>
+                                </div>
+                                <div className="col-md-6"/>
+                                <div className={"col-md-2 d-md-block d-none"}>
+                                    { localStorage.getItem("session_key") === null &&
+                                        (
+                                            <NavLink className={"nav-lnk"} to={"/login"}>
+                                                Login
+                                            </NavLink>
 
-                        )
-                    }
-                    { localStorage.getItem("session_key") === null ||
-                        (
-                            <NavDropdown title={"Account"} className={"nav-lnk"}>
-                                <NavLink className={"nav-lnk"} to={"/dashboard"}>
-                                    Dashboard
-                                </NavLink>
-                                <hr/>
-                                <NavLink className={"nav-lnk"} to={"/login"} onClick={()=>{localStorage.removeItem("session_key")}}>
-                                    Logout
-                                </NavLink>
-                            </NavDropdown>
-                        )
-                    }
-                </div>
-            </Navbar>
+                                        )
+                                    }
+                                    { localStorage.getItem("session_key") === null ||
+                                        (
+                                            <NavDropdown title={"Account"} className={"nav-lnk"}>
+                                                <NavLink className={"nav-lnk"} to={"/dashboard"}>
+                                                    Dashboard
+                                                </NavLink>
+                                                <hr/>
+                                                <NavLink className={"nav-lnk"} to={"/login"} onClick={()=>{localStorage.removeItem("session_key")}}>
+                                                    Logout
+                                                </NavLink>
+                                            </NavDropdown>
+                                        )
+                                    }
+                                </div>
+                            </Nav>
+                        </Navbar.Collapse>
+                    </div>
+                </Navbar>
+            </div>
+        </header>
             <div style={{minHeight: "92vh"}}>
              {props.children}
             </div>
