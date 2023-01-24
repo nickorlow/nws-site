@@ -3,6 +3,7 @@ import URI from "urijs";
 import {Namespace} from "../nws-api/types";
 import {useNWSAccount, useNWSAuthKey} from "../nws-api/hooks";
 import {useSearchParams} from "react-router-dom";
+import './CreateCruisePage.css';
 
 export default function CreateCruisePage() {
     const [page, setPage] = useState('info');
@@ -44,7 +45,13 @@ export default function CreateCruisePage() {
 
     return (
         <div className={"App"}>
-            <h1>Create Container Deployment</h1>
+            <h1 className={"mb-5 mt-3 fw-bolder"}>Create Container Deployment</h1>
+            <div className={"pill-container row justify-content-evenly mb-5"} style={{width: "80%"}}>
+                <p className={"pill col-md-2 " + (page === 'info' ? "pill-selected" : "")}>About</p>
+                <p className={"pill col-md-2 " + (page === 'framework-hostname' ? "pill-selected" : "")}>Deployment Info</p>
+                <p className={"pill col-md-2 " + (page === 'scriptgen' ? "pill-selected" : "")}>Repo Setup</p>
+                <p className={"pill col-md-2 " + (page === 'dns' ? "pill-selected" : "")}>DNS Configuration</p>
+            </div>
             <div style={{width: "75vw"}}>
                 {
                     page === 'info' &&
@@ -65,33 +72,34 @@ export default function CreateCruisePage() {
                                 fall of organized civilization.
                             </li>
                         </ul>
-                        <button onClick={()=>setPage('framework-hostname')}>I understand, continue</button>
+                        <button className={"float-end"} onClick={()=>setPage('framework-hostname')}>I Understand, Continue</button>
                     </div>
                 }
                 {
                     page === 'framework-hostname' &&
                     <div>
-                        <h5>What is this deployment's name?</h5>
-                        <i>May only be lowercase letters and dashes, max 20 chars</i>
-                        <br/>
+                        <h5 className={"label-text"}>What is this deployment's name?</h5>
+                        <p className={"help-text"}>May only be lowercase letters and dashes, max 20 chars</p>
+
                         <input value={name} onChange={(e)=>{setName(e.currentTarget.value)}}/>
-                        <br/>
-                        <h5>How did you create your website?</h5>
-                        <p>Don't see your technology/framework? Email me: <a href={"mailto:nws-support@nickorlow.com"}>nws-support@nickorlow.com</a></p>
+
+                        <h5 className={"label-text"}>How did you create your website?</h5>
+                        <p className={"help-text"}>Don't see your technology/framework? Email me: <a href={"mailto:nws-support@nickorlow.com"}>nws-support@nickorlow.com</a></p>
                         <select value={strat}>
                             <option id={"raw-html"} onClick={()=>setStrat('raw-html')}>Raw HTML</option>
                             <option id={"react-js"} onClick={()=>setStrat('react-js')}>React JS</option>
                         </select>
-                        <br/>
-                        <h5>What is the url of the github repo where your code is hosted? (e.g. https://github.com/nickorlow/personal-site)</h5>
-                        <p>Other git hosting providers are not currently supported through the Web UI</p>
-                        <p>The repo must be public to create it through the Web UI</p>
-                        <input value={gitUriInput} onInput={(e)=>{setGUI(e.currentTarget.value)}}/>
-                        <br/>
-                        <h5>What domain name will you use with your website? (e.g. nickorlow.com)</h5>
-                        <input value={hostUriInput} onChange={(e)=>{setHUI(e.currentTarget.value)}}/>
-                        <br/>
-                        <button onClick={()=>{
+
+                        <h5 className={"label-text"}>What is the url of the GitHub repo where your code is hosted?</h5>
+                        <p className={"help-text"}>Other git hosting providers are not currently supported through the Web UI</p>
+                        <p className={"help-text"}>The repo must be public to create it through the Web UI</p>
+                        <input placeholder={"https://github.com/nickorlow/personal-site"} value={gitUriInput} onInput={(e)=>{setGUI(e.currentTarget.value)}}/>
+
+                        <h5 className={"label-text"}>What domain name will you use with your website?</h5>
+                        <input placeholder={"nws.nickorlow.com"} value={hostUriInput} onChange={(e)=>{setHUI(e.currentTarget.value)}}/>
+
+                        <button onClick={()=>{setPage('info')}}>Back</button>
+                        <button className={"float-end"} onClick={()=>{
                             try {
                                 let git_url = new URL(gitUriInput);
 
@@ -120,32 +128,34 @@ export default function CreateCruisePage() {
                                 alert('may only be lowercase and dashes and under 20 chars')
                                 return;
                             }
-                            setHUI("https://"+hostUriInput);
                             setPage('scriptgen')
                         }}>Continue</button>
-                        <button onClick={()=>{setPage('info')}}>Back</button>
+
                     </div>
                 }
                 {
                     page === 'scriptgen' &&
                     <div>
                         <h4>Copy & Paste the below into your terminal to add NWS deployment scripts to your webapp</h4>
-                        <code style={{backgroundColor: "black", padding: 5, borderRadius: 10}}> curl -s https://raw.githubusercontent.com/nickorlow/nws-ghactions-templates/main/add-nws.sh | bash -s  {strat} {owner} {repo}</code>
+                        <code lang={"shell"} style={{backgroundColor: "black", padding: 5, borderRadius: 10}}>
+                            curl -s https://raw.githubusercontent.com/nickorlow/nws-ghactions-templates/main/add-nws.sh | bash -s  {strat} {owner} {repo}
+                        </code>
                         <br/><span>Ensure the script finishes running before continuing</span>
                         <br/>
-                        <button onClick={()=>{
+
+                        <button onClick={()=>setPage('framework-hostname')}>Back</button>
+                        <button className={"float-end"} onClick={()=>{
                             deploy();
                             setPage('dns');
                         }}>Continue</button>
-                        <button onClick={()=>setPage('framework-hostname')}>Back</button>
                     </div>
                 }
                 {
                     page === 'dns' &&
                     <div>
-                        <h4>Add the following DNS entry to {new URI(hostUriInput).hostname()}</h4>
+                        <h4>Add the following DNS entry to {new URI("https://"+hostUriInput).hostname()}</h4>
                         {
-                            new URI(hostUriInput).subdomain().length == 0 &&
+                            new URI("https://"+hostUriInput).subdomain().length == 0 &&
                             <div>
                                 <p>If your DNS provider is:</p>
                                 <ul>
@@ -159,7 +169,7 @@ export default function CreateCruisePage() {
                             </div>
                         }
                         {
-                            new URI(hostUriInput).subdomain().length > 0 &&
+                            new URI("https://"+hostUriInput).subdomain().length > 0 &&
                             <div>
                                 <p>Type: CNAME</p>
                                 <p>Name: {new URI(hostUriInput).subdomain()} ({new URI(hostUriInput).hostname()})</p>

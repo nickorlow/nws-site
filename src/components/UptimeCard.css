@@ -26,3 +26,16 @@
     width: 500px;
     max-width: 100vw;
 }
+
+.stat-perfect {
+    font-weight: bold;
+    color: #069D06
+}
+
+.stat-middle {
+    color: #877E1C
+}
+
+.stat-bad {
+   color: #921111
+}
