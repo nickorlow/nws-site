@@ -58,6 +58,15 @@ p {
   padding-bottom: 5px;
 }
 
+
+@media only screen
+  and (max-width:  992px) {
+  .nws-card-md {
+    border-radius: 20px;
+    background-color: #eee;
+    padding: .75rem;
+  }
+}
 .nws-card {
   border-radius: 20px;
   background-color: #eee;
