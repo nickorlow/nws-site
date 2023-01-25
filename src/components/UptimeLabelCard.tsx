@@ -7,18 +7,30 @@ import Modal from "react-modal";
 export default function UptimeLabelCard() {
 
     return(
-        <div className={"col-2 p-0 d-none d-md-block mb-2 m-0 text-center"}>
+        <div className={"col-2 p-0 d-none d-lg-block mb-2 m-0 text-center"}>
             <div style={{height: 25, margin: 0}}>
-                <p className={"fw-bold"}>Service Name</p>
+                <p className={"fw-bold"}   style={{fontSize: ".9em"}}>Service Name</p>
             </div>
                 <hr/>
-                <p className={"fw-bold"}>Uptime (Last Month)</p>
+            <div style={{height: 25, margin: 0}}>
+                <p className={"fw-bold"}  style={{fontSize: ".9em"}}>Uptime (Last Month)</p>
+            </div>
+
                 <hr/>
-                <p className={"fw-bold"}>Uptime ({new Date().getFullYear()} YTD)</p>
+            <div style={{height: 25, margin: 0}}>
+                <p className={"fw-bold"}   style={{fontSize: ".9em"}}>Uptime ({new Date().getFullYear()} YTD)</p>
+            </div>
+
                 <hr/>
-                <p className={"fw-bold"}>Avg Response Time (24hr)</p>
+            <div style={{height: 25, margin: 0}}>
+                <p className={"fw-bold"}   style={{fontSize: ".9em"}}>Avg Response Time (24hr)</p>
+            </div>
+
                 <hr/>
-                <p className={"fw-bold"}>Current Status</p>
+            <div style={{height: 25, margin: 0}}>
+                <p className={"fw-bold"}   style={{fontSize: ".9em"}}>Current Status</p>
+            </div>
+
         </div>
     );
 }
