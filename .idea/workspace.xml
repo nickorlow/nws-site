@@ -4,7 +4,9 @@
     <list default="true" id="03fafda4-e2c1-4602-a731-a2f96e84badd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UptimeCard.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UptimeCard.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/UptimeComparisonCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UptimeComparisonCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UptimeLabelCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UptimeLabelCard.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

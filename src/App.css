@@ -64,7 +64,7 @@ p {
   .nws-card-md {
     border-radius: 20px;
     background-color: #eee;
-    padding: .75rem;
+    padding-bottom: 2rem;
   }
 }
 .nws-card {
