@@ -40,3 +40,7 @@
 .stat-bad {
    color: #921111
 }
+
+hr {
+    height: 1.1px;
+}

@@ -11,22 +11,21 @@ export default function UptimeLabelCard() {
             <div style={{height: 25, margin: 0}}>
                 <p className={"fw-bold"}   style={{fontSize: ".9em"}}>Service Name</p>
             </div>
-                <hr/>
+                <hr className={"w-100"}/>
             <div style={{height: 25, margin: 0}}>
                 <p className={"fw-bold"}  style={{fontSize: ".9em"}}>Uptime (Last Month)</p>
             </div>
 
-                <hr/>
+            <hr className={"w-100"}/>
             <div style={{height: 25, margin: 0}}>
                 <p className={"fw-bold"}   style={{fontSize: ".9em"}}>Uptime ({new Date().getFullYear()} YTD)</p>
             </div>
-
-                <hr/>
+            <hr className={"w-100"}/>
             <div style={{height: 25, margin: 0}}>
                 <p className={"fw-bold"}   style={{fontSize: ".9em"}}>Avg Response Time (24hr)</p>
             </div>
 
-                <hr/>
+            <hr className={"w-100"}/>
             <div style={{height: 25, margin: 0}}>
                 <p className={"fw-bold"}   style={{fontSize: ".9em"}}>Current Status</p>
             </div>

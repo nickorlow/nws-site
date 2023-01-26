@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="03fafda4-e2c1-4602-a731-a2f96e84badd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/UptimeCard.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UptimeCard.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/UptimeComparisonCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UptimeComparisonCard.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/UptimeLabelCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UptimeLabelCard.tsx" afterDir="false" />
@@ -35,10 +34,11 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components" />
-    <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ts.external.directory.path": "/home/nickorlow/programmming/personal/nws-site/node_modules/typescript/lib"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/components" />
@@ -68,6 +68,7 @@
       <workItem from="1668047509596" duration="7310000" />
       <workItem from="1673378530233" duration="327000" />
       <workItem from="1673538703809" duration="6147000" />
+      <workItem from="1674698447115" duration="249000" />
     </task>
     <servers />
   </component>
