@@ -27,6 +27,10 @@ function Layout (props: {children: any}) {
     return (
         <div>
             <header  className={"w-100 sticky-top"}>
+                <div className={"w-100  d-flex justify-content-center align-content-center text-center p-1 "} style={{backgroundColor: "#004C54", height: 30}} >
+                    <p className={"text-white fw-bold"}>Fly Eagles Fly</p>
+                    <img src={"https://logos-world.net/wp-content/uploads/2020/05/Philadelphia-Eagles-Logo.png"} style={{maxHeight: "100%", maxWidth: "100%"}}/>
+                </div>
             <div className={"w-100"}>
                 <Navbar sticky={"top"} expand="lg" className={"row justify-content-center m-0 p-0"} style={{backgroundColor: "#eee"}}>
                     <div className={"row w-100"}>
@@ -79,6 +83,8 @@ function Layout (props: {children: any}) {
                         </Navbar.Collapse>
                     </div>
                 </Navbar>
+
+
             </div>
         </header>
             <div style={{minHeight: "92vh"}}>
