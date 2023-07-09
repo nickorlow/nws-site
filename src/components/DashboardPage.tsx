@@ -1,4 +1,4 @@
-import {Account, Namespace, Service} from "../nws-api/types";
+import {Account, Namespace, Service, SessionKey} from "../nws-api/types";
 import {
     useGetAccountNamespaces,
     useGetAccountServices,
@@ -7,6 +7,7 @@ import {
     useNWSAccount
 } from "../nws-api/hooks";
 import {useState} from "react";
+import {enableSSL} from "../nws-api/calls";
 
 
 export default function DashboardPage() {
@@ -44,6 +45,14 @@ export default function DashboardPage() {
                           <h3>{e.serviceName}</h3>
                           <p><b>Application Id</b></p>
                           <p>{e.serviceId}</p>
+                          <a onClick={async ()=> {
+                              let rawSession: string | null = localStorage.getItem("session_key");
+
+                              if(rawSession != null) {
+                                  let session: SessionKey = JSON.parse(rawSession);
+                                  await enableSSL(account!.id!, e.serviceId, session);
+                              }
+                          }}>Enable SSL</a>
                       </div>
                   </div>);
               })}

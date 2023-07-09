@@ -49,3 +49,12 @@ export async function getNamespaces(accountId: string, skey: SessionKey): Promis
     let namespaces: Namespace[] = await response.json();
     return namespaces;
 }
+
+export async function enableSSL(accountId: string, serviceId: string, skey: SessionKey) {
+    await fetch('https://api-nws.nickorlow.com/'+accountId+'/services/'+serviceId+"/ssl", {
+        headers: {
+            Authorization: skey.id
+        },
+        method: "POST"
+    });
+}
