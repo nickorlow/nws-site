@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="03fafda4-e2c1-4602-a731-a2f96e84badd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DashboardPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DashboardPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/nws-api/calls.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/nws-api/calls.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -70,7 +68,7 @@
       <workItem from="1673378530233" duration="327000" />
       <workItem from="1673538703809" duration="6147000" />
       <workItem from="1674698447115" duration="249000" />
-      <workItem from="1688939993548" duration="1130000" />
+      <workItem from="1688939993548" duration="1768000" />
     </task>
     <servers />
   </component>

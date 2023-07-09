@@ -51,7 +51,7 @@ export async function getNamespaces(accountId: string, skey: SessionKey): Promis
 }
 
 export async function enableSSL(accountId: string, serviceId: string, skey: SessionKey) {
-    await fetch('https://api-nws.nickorlow.com/'+accountId+'/services/'+serviceId+"/ssl", {
+    await fetch('https://api-nws.nickorlow.com/'+accountId+'/service/'+serviceId+"/ssl", {
         headers: {
             Authorization: skey.id
         },
