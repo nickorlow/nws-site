@@ -48,12 +48,19 @@ export type Account = {
   status?: string
 };
 
+export type Host = {
+  serviceId: string,
+  isSslEnabled: boolean,
+  hostname: string
+};
+
 export type Service = {
     serviceId: string,
     serviceName: string,
     namespace: string,
     containerUrl: string,
-    ownerId: string
+    ownerId: string,
+    hostnames: Host[]
 }
 
 export type ApiError = {

@@ -45,14 +45,23 @@ export default function DashboardPage() {
                           <h3>{e.serviceName}</h3>
                           <p><b>Application Id</b></p>
                           <p>{e.serviceId}</p>
-                          <a onClick={async ()=> {
-                              let rawSession: string | null = localStorage.getItem("session_key");
+                          {e.hostnames.map((host)=>{
+                              return (
+                                  <div className={"mb-2 p-2"}>
+                                      <a href={host.hostname}>{host.hostname}</a>
+                                      {host.isSslEnabled ? <a onClick={async () => {
+                                          let rawSession: string | null = localStorage.getItem("session_key");
 
-                              if(rawSession != null) {
-                                  let session: SessionKey = JSON.parse(rawSession);
-                                  await enableSSL(account!.id!, e.serviceId, session);
-                              }
-                          }}>Enable SSL</a>
+                                          if (rawSession != null) {
+                                              let session: SessionKey = JSON.parse(rawSession);
+                                              await enableSSL(account!.id!, e.serviceId, session);
+                                          }
+                                      }}>Enable SSL</a> : <p>SSL is enabled!</p>
+                                      }
+                                  </div>
+                              )
+                          })}
+
                       </div>
                   </div>);
               })}
