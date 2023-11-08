@@ -47,7 +47,7 @@ export default function HomePage() {
                 </div>
             </div>
             <div className={"w-100 mt-2 flex justify-content-center align-content-center text-center"}>
-                <h3><i>Better uptime than GitHub Pages!</i></h3>
+                <h3><i>100% Uptime from 1/1/2023 - 11/8/2023</i></h3>
                 <h4><a href={"https://youtu.be/WHdXWMFHuqA"} target="_blank" rel="noopener noreferrer">Watch the NWS Deployment Demo</a></h4>
             </div>
             <div style={{width: '75vw'}}>
