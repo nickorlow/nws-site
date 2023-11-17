@@ -33,6 +33,7 @@ export default function CreateCruisePage() {
                     "containerUrl": `ghcr.io/${owner}/${repo}`,
                     "namespaceId": search.get("namespaceId"),
                     "serviceUrl": hostUriInput,
+                    "hostnammes": []
                 })
             }).then((response)=> {
                 if(response.status === 200) {
