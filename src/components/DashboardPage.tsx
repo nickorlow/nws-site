@@ -54,7 +54,7 @@ export default function DashboardPage() {
 
                                           if (rawSession != null) {
                                               let session: SessionKey = JSON.parse(rawSession);
-                                              await enableSSL(account!.id!, e.serviceId, session);
+                                              await enableSSL(account!.id!, e.serviceId, host.hostname, session);
                                           }
                                       }}>Enable SSL</a> : <p>SSL is enabled!</p>
                                       }
