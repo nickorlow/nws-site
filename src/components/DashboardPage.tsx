@@ -49,7 +49,7 @@ export default function DashboardPage() {
                               return (
                                   <div className={"mb-2 p-2"}>
                                       <a href={host.hostname}>{host.hostname}</a>
-                                      {host.isSslEnabled ? <a onClick={async () => {
+                                      {!host.isSslEnabled ? <a onClick={async () => {
                                           let rawSession: string | null = localStorage.getItem("session_key");
 
                                           if (rawSession != null) {
