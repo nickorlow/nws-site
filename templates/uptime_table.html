@@ -1,0 +1,35 @@
+{% macro uptime_table(uptime_infos) %}
+<table style="width: 100%;">
+  <tr>
+    <th>Name</th>
+    <th>Uptime YTD</th>
+    <th>Response Time 24h</th>
+    <th>Current Status</th>
+  </tr>
+  {% for uptime_info in uptime_infos %}
+      <tr>
+          <td>
+              {% if let Some(click_url) = uptime_info.url %} 
+                <a href="{{click_url}}">
+              {% endif %}
+
+              {{uptime_info.name}}
+
+              {% if let Some(click_url) = uptime_info.url %} 
+                </a>
+              {% endif %}
+          </td>
+          <td>{{uptime_info.uptime}}</td>
+          <td>{{uptime_info.response_time}}</td>
+          <td 
+              {% if uptime_info.status != "Up" %}
+              style="color: red;"
+              {% endif %}
+              >
+              {{uptime_info.status}}
+          </td>
+      </tr>
+  {% endfor %}
+</table>
+<p style="margin-top: 0px;"><i>Data current as of {{last_updated}}</i></p>
+{% endmacro %}

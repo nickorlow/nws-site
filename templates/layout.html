@@ -1,0 +1,38 @@
+<head>
+  <title>Sharpe Mountain Compute</title>
+  <link rel="stylesheet" href="/assets/style.css">
+  <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+</head>
+<body>
+  <nav>
+    <div style="display: flex; justify-content: space-between;">
+        <div>
+            <a href="/">[ Home ]</a>
+            <a href="/system_status">[ System Status ]</a>
+            <a href="/blog">[ Blog ]</a>
+        </div>
+        <div>
+            <a href="/dashboard">[ Dashboard ]</a>
+        </div>
+    </div>
+  </nav>
+  <hr/>
+
+  {{ content|safe }}
+
+  <footer>
+    <hr />
+    <div style="display: flex; justify-content: space-between;"> 
+        <div>
+            <p style="margin-bottom: 0px; margin-top:0px;"><b>Sharpe Mountain Compute</b></p>
+            <p style="margin-bottom: 0px; margin-top:0px;"><i>formerly Nick Web Services (NWS)</i></p>
+    <p style="margin-bottom: 0px;margin-top: 0px;">Copyright &#169; <a href="https://nickorlow.com">Nicholas Orlowsky</a> 2024</p>
+    <p style="margin-top: 0px;"><i>"We're getting there" - SEPTA</i></p>
+        </div>
+    <div> 
+        <img class="flag-img" src="/assets/flag-images/us.png" title="The United States of America"/>
+        <img class="flag-img" src="/assets/flag-images/us-pa.png" title="The Commonwealth of Pennsylvania"/>
+        <img class="flag-img" src="/assets/flag-images/us-tx.png" title="The State of Texas"/>
+    </div>
+  </footer>
+</body>

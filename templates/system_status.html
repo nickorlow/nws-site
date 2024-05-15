@@ -1,0 +1,21 @@
+{%- import "uptime_table.html" as scope -%}
+
+<h1>System Status</h1>
+
+<h2>Datacenter Status</h2>
+<p>
+The status of each of Sharpe Mountain Compute's 4 
+datacenters.
+</p>
+
+{% call scope::uptime_table(dctr_uptime_infos) %}
+
+<h2>Service Status</h2>
+<p>
+The status of services people host on Sharpe Mountain Compute.
+Note that the uptime and performance of services hosted on
+Sharpe Mountain Compute may be affected by factors not controlled by us such as 
+bad optimization or buggy software.
+</p>
+
+{% call scope::uptime_table(svc_uptime_infos) %}

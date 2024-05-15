@@ -1,0 +1,40 @@
+* {
+  font-family: serif; 
+}
+
+th {
+  text-align: left;
+}
+
+td {
+  text-align: left;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+
+body {
+  background-color: #d2e0ec;
+  margin: 20px auto;
+  max-width: 750px;
+}
+
+a {
+  text-decoration: none;
+  color: #114488;
+}
+
+img {
+  max-width: 100%;
+}
+
+.flag-img {
+    height: 30px;
+}
+
+p.lineitem::after {
+    content: " ";
+    flex: 1;
+    border-bottom: 1px dotted #000;
+}
