@@ -1,18 +1,24 @@
 <h1>Blog</h1>
 
 {% for blog in blogs %}
-<div style="display:flex;justify-content:space-around; padding-bottom: 5px;"> 
-    <p style="margin-bottom: 0px; padding-right: 8px;">
-    <a 
-       {% if blog.url.contains("https://") %}
-        href="{{ blog.url }}"
-        {% else %}
-        href="/blogs/{{ blog.url }}"
-        {% endif %}
-        >
-        [ {{ blog.title }} ]
-    </a></p>
-    <div style="flex-grow: 1; border-bottom: 1px dotted black;"></div>
-    <p style="margin-bottom: 0px; padding-left: 8px;"><i>{{ blog.date }}</i></p>
+<div style="display:flex;justify-content:flex-start; padding-bottom: 5px; flex-wrap: wrap;"> 
+    <div style="display:flex;flex-grow:1;">
+        <p style="margin-bottom: 0px; padding-right: 8px; white-space: nowrap; text-align: left;">
+            <a 
+               {% if blog.url.contains("https://") %}
+                href="{{ blog.url }}"
+                {% else %}
+                href="/blogs/{{ blog.url }}"
+                {% endif %}
+                >
+                [ {{ blog.title }} ]
+            </a>
+        </p>
+        <div style="flex-grow: 1; border-bottom: 1px dotted black;min-width:0px;"></div>
+    </div>
+    <div style="display: flex;flex-grow:1;">
+        <div style="flex-grow: 1; border-bottom: 1px dotted black;"></div>
+        <p style="margin-bottom: 0px; padding-left: 8px;text-align: right;"><i>{{ blog.date }}</i></p>
+    </div>
 </div>
 {% endfor %}
