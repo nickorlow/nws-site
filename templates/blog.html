@@ -1,9 +1,8 @@
 <h1>Blog</h1>
 
 {% for blog in blogs %}
-<div style="display:flex;justify-content:flex-start; padding-bottom: 5px; flex-wrap: wrap;"> 
-    <div style="display:flex;flex-grow:1;">
-        <p style="margin-bottom: 0px; padding-right: 8px; text-align: left;">
+<div style="margin-top: 10px; margin-bottom: 10px;"> 
+        <h3 style="margin-bottom: 0px;">
             <a 
                {% if blog.url.contains("https://") %}
                 href="{{ blog.url }}"
@@ -13,12 +12,7 @@
                 >
                 [ {{ blog.title }} ]
             </a>
-        </p>
-        <div style="flex-grow: 1; border-bottom: 1px dotted black;min-width:0px;"></div>
-    </div>
-    <div style="display: flex;flex-grow:1;">
-        <div style="flex-grow: 1; border-bottom: 1px dotted black;"></div>
-        <p style="margin-bottom: 0px; padding-left: 8px;text-align: right;"><i>{{ blog.date }}</i></p>
-    </div>
+        </h3>
+        <p style="margin-top: 0px;"><i>{{ blog.date }}</i></p>
 </div>
 {% endfor %}
