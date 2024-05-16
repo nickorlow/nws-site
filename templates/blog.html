@@ -3,7 +3,7 @@
 {% for blog in blogs %}
 <div style="display:flex;justify-content:flex-start; padding-bottom: 5px; flex-wrap: wrap;"> 
     <div style="display:flex;flex-grow:1;">
-        <p style="margin-bottom: 0px; padding-right: 8px; white-space: nowrap; text-align: left;">
+        <p style="margin-bottom: 0px; padding-right: 8px; text-align: left;">
             <a 
                {% if blog.url.contains("https://") %}
                 href="{{ blog.url }}"
