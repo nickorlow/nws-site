@@ -1935,6 +1935,7 @@ dependencies = [
  "dotenv",
  "dotenv_codegen",
  "env_logger",
+ "lazy_static",
  "log",
  "reqwest",
  "rust_decimal",

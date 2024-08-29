@@ -1,27 +1,27 @@
-<h1>SMC Incident Postmortem 11/08/2023</h1>
+<h1>NWS Incident Postmortem 11/08/2023</h1>
 
 <p>
-  On November 8th, 2023 at approximately 09:47 UTC, SMC suffered
+  On November 8th, 2023 at approximately 09:47 UTC, NWS suffered
   a complete outage. This outage resulted in the downtime of all 
-  services hosted on SMC and the downtime of the SMC Management
-  Engine and the SMC dashboard.
+  services hosted on NWS and the downtime of the NWS Management
+  Engine and the NWS dashboard.
 </p>
 
 <p>
   The incident lasted 38 minutes after which it was automatically
-  resolved and all services were restored. This is SMC' first
+  resolved and all services were restored. This is NWS' first
   outage event of 2023.
 </p>
 
 <h2>Cause</h2>
 <p>
-  SMC utilizes several tactics to ensure uptime. A component of
+  NWS utilizes several tactics to ensure uptime. A component of
   this is load balancing and failover. This service is currently
   provided by Cloudflare at the DNS level. Cloudflare sends
-  health check requests to SMC servers at specified intervals. If 
+  health check requests to NWS servers at specified intervals. If 
   it detects that one of the servers is down, it will remove the
   A record from entry.nws.nickorlow.com for that server (this domain
-  is where all services on SMC direct their traffic via a 
+  is where all services on NWS direct their traffic via a 
   CNAME). 
 </p>
 
@@ -31,34 +31,34 @@
   error, but rather an HTTP timeout. This is an indication that the
   server may have lost network connectivity. When Cloudflare detected that the
   servers were down, it removed their A records from the 
-  entry.nws.nickorlow.com domain. Since SMC Pennsylvania servers
+  entry.nws.nickorlow.com domain. Since NWS Pennsylvania servers
   have been undergoing maintenance since August 2023, this left no 
   servers able to serve requests routed to entry.nws.nickorlow.com,
   resulting in the outage.
 </p>
 
 <p>
-  SMC utilizes UptimeRobot for monitoring the uptime statistics of
-  services on SMC and SMC servers. This is the source of the 
-  statistics shown on the SMC status page. 
+  NWS utilizes UptimeRobot for monitoring the uptime statistics of
+  services on NWS and NWS servers. This is the source of the 
+  statistics shown on the NWS status page. 
 </p>
 
 <p>
-  UptimeRobot did not detect either of the Texas SMC servers as being
+  UptimeRobot did not detect either of the Texas NWS servers as being
   offline for the duration of the outage. This is odd, as UptimeRobot
-  and Cloudflare did not agree on the status of SMC servers. Logs
-  on SMC servers showed that requests from UptimeRobot were being
+  and Cloudflare did not agree on the status of NWS servers. Logs
+  on NWS servers showed that requests from UptimeRobot were being
   served while no requests from Cloudflare were shown in the logs. 
 </p>
 
 <p>
   No firewall rules existed that could have blocked the healthcheck traffic from Cloudflare
-  for either of the SMC servers. There was no other configuration
+  for either of the NWS servers. There was no other configuration
   found that would have blocked these requests. As these servers
   are on different networks inside different buildings in different
   parts of Texas, their networking equipment is entirely separate.
   This rules out any failure of networking equipment owned
-  by SMC. This leads us to believe that the issue may have been
+  by NWS. This leads us to believe that the issue may have been
   caused due to an internet traffic anomaly, although we are currently
   unable to confirm that this is the cause of the issue.
 </p>
@@ -82,7 +82,7 @@
 </p>
 
 <p>
-  SMC will also investigate other methods of failover and load 
+  NWS will also investigate other methods of failover and load 
   balancing. 
 </p>
 

@@ -1,7 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Sharpe Mountain Compute</title>
+
+  {% if let Some(title) = page_title %}
+  <title>{{ title }}</title>
+  {% else %}
+  <title>Nick Web Services</title>
+  {% endif %}
+
+  {% if let Some(desc) = page_desc %}
+  <meta name="{{ desc }}" />
+  {% else %}
+  <meta name="Nick Web Services" />
+  {% endif %}
+
   <link rel="stylesheet" href="/assets/style.css">
   <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -27,15 +39,9 @@
     <hr />
     <div style="display: flex; justify-content: space-between;"> 
         <div>
-            <p style="margin-bottom: 0px; margin-top:0px;"><b>Sharpe Mountain Compute</b></p>
-            <p style="margin-bottom: 0px;margin-top: 0px;">
-            <small><i>formerly Nick Web Services (NWS)</i></small>
-            </p>
+            <p style="margin-bottom: 0px; margin-top:0px;"><b>Nick Web Services</b></p>
             <p style="margin-bottom: 0px;margin-top: 0px;">
     <small>Copyright &#169; <a href="https://nickorlow.com">Nicholas Orlowsky</a> 2024</small>
-            </p>
-            <p style="margin-bottom: 0px;margin-top: 0px;">
-    <small><i>"We're getting there" - SEPTA</i></small>
             </p>
         </div>
     <div> 
