@@ -37,18 +37,15 @@ export default function HomePage() {
                     <img src={NWSLogo} alt="nws-logo" style={{width: "70%"}}/>
                 </div>
                 <div className={"col-md-6 text-center d-flex justify-content-center flex-column align-items-center"}>
-                    <h1>Nick Web Services</h1>
-                    <p style={{maxWidth: 500}} className={"col-md-6 text-center"}>
-                        Nick Web Services is a hosting service based out of
-                        Austin, Texas. It is committed
-                        to achieving maximum uptime with better performance and a lower cost than any of the major cloud
-                        services.
+                    <h1>Sharpe Mountain Compute</h1>
+                    <p  className={"col-md-6 text-center"}>
+                      Sharpe Mountain Compute (fka Nick Web Services) is a reliable cloud compute provider. SMC is dedicated to achieving maximum uptime at a lower cost than traditional cloud compute providers.
                     </p>
                 </div>
             </div>
             <div className={"w-100 mt-2 flex justify-content-center align-content-center text-center"}>
                 <h3><i>100% Uptime from 1/1/2023 - 11/8/2023</i></h3>
-                <h4><a href={"https://youtu.be/WHdXWMFHuqA"} target="_blank" rel="noopener noreferrer">Watch the NWS Deployment Demo</a></h4>
+                <h4><a href={"https://youtu.be/WHdXWMFHuqA"} target="_blank" rel="noopener noreferrer">Watch the SMC Deployment Demo</a></h4>
             </div>
             <div style={{width: '75vw'}}>
                 <hr/>

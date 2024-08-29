@@ -38,22 +38,22 @@ export default function UptimeComparisonCard(props: {uptime: UptimeRecord, isSer
                 </div>
                 <hr className={"  w-100"}/>
                 <p className={"fw-bold d-lg-none"}>Uptime (Last Month)</p>
-                <div style={{height: 25, margin: 0}} className={"pt-2 pt-lg-0"}>
+                <div style={{height: 25, margin: 0}} className={"pb-2 pt-lg-0"}>
                     <p className={getUptimeClass(props.uptime.uptimeMonth)}>{props.uptime.uptimeMonth}%</p>
                 </div>
                 <hr className={"d-lg-block d-none  w-100"}/>
                 <p className={"fw-bold d-lg-none"}>Uptime ({new Date().getFullYear()} YTD)</p>
-                <div style={{height: 25, margin: 0}} className={"pt-2 pt-lg-0"}>
+                <div style={{height: 25, margin: 0}} className={"pb-2 pt-lg-0"}>
                     <p  className={getUptimeClass(props.uptime.uptimeYtd)}>{props.uptime.uptimeYtd}%</p>
                 </div>
                 <hr className={"d-lg-block d-none  w-100"}/>
                 <p className={"fw-bold d-lg-none"}>Avg Response Time (24hr)</p>
-                <div style={{height: 25, margin: 0}} className={"pt-2 pt-lg-0"}>
+                <div style={{height: 25, margin: 0}} className={"pb-2 pt-lg-0"}>
                     <p  className={getResponseTimeClass(props.uptime.averageResponseTime)}>{props.uptime.averageResponseTime}ms</p>
                 </div>
                 <hr className={"d-lg-block d-none  w-100"} />
                 <p className={"fw-bold d-lg-none"}>Current Status</p>
-            <div style={{height: 25, margin: 0}} className={"pt-2 pt-lg-0"}>
+            <div style={{height: 25, margin: 0}} className={"pb-2 pt-lg-0"}>
 
                 <div className={`p-1 d-flex justify-content-start w-100`} >
                     <p className={`fw-bold severity-label w-100

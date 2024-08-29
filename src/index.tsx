@@ -28,7 +28,7 @@ function Layout (props: {children: any}) {
         <div>
             <header  className={"w-100 sticky-top"}>
             <div className={"w-100"}>
-                <Navbar sticky={"top"} expand="lg" className={"row justify-content-center m-0 p-0"} style={{backgroundColor: "#eee"}}>
+                <Navbar sticky={"top"} expand="md" className={"row justify-content-center m-0 p-0"} style={{backgroundColor: "#eee"}}>
                     <div className={"row w-100"}>
                         <div className="row w-100 d-md-none d-sm-block">
                             <div className={"col-9"}>

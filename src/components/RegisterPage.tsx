@@ -96,9 +96,9 @@ export default function RegisterPage() {
             </div>
 
             <div className={"reg-box"} style={{display: didRegister ? "flex" : "none"}}>
-                <h3>Verify your E-Mail address.</h3>
+                <h3>Successfully Registered!</h3>
 
-                <p>Please verify your E-Mail by clicking the link we sent to you at: <b>{email}</b></p>
+                <p><a href="/login">Proceed to login</a></p>
             </div>
         </div>
     );

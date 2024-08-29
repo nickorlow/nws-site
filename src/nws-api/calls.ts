@@ -50,6 +50,22 @@ export async function getNamespaces(accountId: string, skey: SessionKey): Promis
     return namespaces;
 }
 
+export async function createNamespace(name: string, accountId: string, session: SessionKey): Promise<Namespace> {
+    let response: Response = await fetch('https://api-nws.nickorlow.com/namespaces', {
+        headers: {
+          'Content-Type': 'application/json',
+            Authorization: btoa(session.accountId + ":" + session.id)
+        },
+        method: 'POST',
+        body: JSON.stringify({
+            'name': name,
+            'ownerId': accountId 
+        })
+    });
+    let namespace: Namespace = await response.json();
+    return namespace;
+}
+
 export async function enableSSL(accountId: string, serviceId: string, hostname: string, session: SessionKey) {
     await fetch('https://api-nws.nickorlow.com/'+accountId+'/service/'+serviceId+"/hosts/"+hostname+"/ssl", {
         headers: {

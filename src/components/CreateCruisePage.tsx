@@ -7,7 +7,7 @@ import './CreateCruisePage.css';
 
 export default function CreateCruisePage() {
     const [page, setPage] = useState('info');
-    const [strat, setStrat] = useState<'raw-html' | 'react-js'>('raw-html');
+    const [strat, setStrat] = useState<'raw-html' | 'react-js' | 'raw-html-anthracite' | 'docker' | 'default'>('default');
     const [owner, setOwner] = useState('');
     const [repo, setRepo] = useState('');
     const [name, setName] = useState('');
@@ -32,8 +32,8 @@ export default function CreateCruisePage() {
                     "serviceName": name,
                     "containerUrl": `ghcr.io/${owner}/${repo}`,
                     "namespaceId": search.get("namespaceId"),
-                    "serviceUrl": hostUriInput,
-                    "hostnammes": []
+                    "serviceUrl": "https://"+hostUriInput,
+                    "hostnames": []
                 })
             }).then((response)=> {
                 if(response.status === 200) {
@@ -84,10 +84,13 @@ export default function CreateCruisePage() {
 
                         <input value={name} onChange={(e)=>{setName(e.currentTarget.value)}}/>
 
-                        <h5 className={"label-text"}>How did you create your website?</h5>
+                        <h5 className={"label-text"}>Choose a Dockerfile template</h5>
                         <p className={"help-text"}>Don't see your technology/framework? Email me: <a href={"mailto:nws-support@nickorlow.com"}>nws-support@nickorlow.com</a></p>
-                        <select value={strat}>
-                            <option id={"raw-html"} onClick={()=>setStrat('raw-html')}>Raw HTML</option>
+                        <select>
+                            <option hidden>Select a template</option>
+                            <option id={"raw-html"} onClick={()=>setStrat('docker')}>I already have a Dockerfile in the root of my repository</option>
+                            <option id={"raw-html"} onClick={()=>setStrat('raw-html-anthracite')}>Raw HTML (with Anthracite Web Server, created by Nick)</option>
+                            <option id={"raw-html"} onClick={()=>setStrat('raw-html')}>Raw HTML (with NGINX)</option>
                             <option id={"react-js"} onClick={()=>setStrat('react-js')}>React JS</option>
                         </select>
 
@@ -113,7 +116,7 @@ export default function CreateCruisePage() {
                                     setRepo(git_url.pathname.split('/')[2])
                                 }
                             } catch (e) {
-                                alert('invalid github url')
+                                alert('Invalid GitHub URL. Should be of format https://github.com/owner/repo')
                                 return;
                             }
 
@@ -121,7 +124,7 @@ export default function CreateCruisePage() {
                             try {
                                 let url = new URL("https://"+hostUriInput);
                             } catch (e) {
-                                alert('invalid host url')
+                                alert('Invalid domain! Should be format subdomain.domain.tld. Don\'t include protocols in front (i.e https://)')
                                 return;
                             }
 
@@ -138,10 +141,11 @@ export default function CreateCruisePage() {
                     page === 'scriptgen' &&
                     <div>
                         <h4>Copy & Paste the below into your terminal to add NWS deployment scripts to your webapp</h4>
-                        <code lang={"shell"} style={{backgroundColor: "black", padding: 5, borderRadius: 10}}>
+                        <code lang={"shell"} style={{backgroundColor: "#bbbbbb", padding: 5, borderRadius: 10}}>
                             curl -s https://raw.githubusercontent.com/nickorlow/nws-ghactions-templates/main/add-nws.sh | bash -s  {strat} {owner} {repo}
                         </code>
                         <br/><span>Ensure the script finishes running before continuing</span>
+                        <br/><span>For your security, you may view the source code of the script <a href="https://github.com/nickorlow/nws-ghactions-templates/blob/main/add-nws.sh" target="_blank">here</a></span>
                         <br/>
 
                         <button onClick={()=>setPage('framework-hostname')}>Back</button>
@@ -152,7 +156,7 @@ export default function CreateCruisePage() {
                     </div>
                 }
                 {
-                    page === 'dns' &&
+                    page === 'dns' && 
                     <div>
                         <h4>Add the following DNS entry to {new URI("https://"+hostUriInput).hostname()}</h4>
                         {
@@ -173,7 +177,7 @@ export default function CreateCruisePage() {
                             new URI("https://"+hostUriInput).subdomain().length > 0 &&
                             <div>
                                 <p>Type: CNAME</p>
-                                <p>Name: {new URI(hostUriInput).subdomain()} ({new URI(hostUriInput).hostname()})</p>
+                                <p>Name: {new URI("https://"+hostUriInput).subdomain()} ({new URI("https://"+hostUriInput).hostname()})</p>
                                 <p>Value: entry.nws.nickorlow.com</p>
                             </div>
                         }
@@ -182,11 +186,24 @@ export default function CreateCruisePage() {
                     </div>
                 }
                 {
-                    page === 'done' &&
+                    page === 'done' && 
                     <div>
-                        <h3>Welcome to NWS</h3> <br/>
+                        <h3>Welcome to NWS!</h3> <br/>
+                        <p>Your site should be avaliable on NWS momentairly</p> <br/>
+                        <p>It would be great if you could add the following to your website:</p><br/>
+<code lang={"html"} style={{ backgroundColor: "#bbbbbb", padding: 5, borderRadius: 10 }}>
+        &lt;p&gt;Hosting provided by &lt;a href="https://nws.nickorlow.com"&gt;NWS&lt;/a&gt;&lt;/p&gt;
+</code> <br/> <br/>
+        { strat === "raw-html-anthracite" && 
+            <div>
+                                    <p>It would be great if you could add the following to your website as well:</p><br/>
+<code lang={"html"} style={{ backgroundColor: "#bbbbbb", padding: 5, borderRadius: 10 }}>
+        &lt;p&gt;Powered by &lt;a href="https://github.com/nickorlow/anthracite"&gt;Anthracite Web Server&lt;/a&gt;&lt;/p&gt;
+</code> <br/> <br/>
+        </div>
+
+        }
                         <button onClick={()=>{window.location.href="/dashboard"}}>Go to Dashboard</button> <br/>
-                        <button onClick={()=>{window.location.href=hostUriInput}}>See my Site</button>
                     </div>
                 }
             </div>
