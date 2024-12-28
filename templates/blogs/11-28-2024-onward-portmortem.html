@@ -1,0 +1,51 @@
+<h1>NWS Incident Postmortem 11/28/2024 - Present</h1>
+
+<p>
+  On November 28th, 2024 at approximately 07:37 UTC, NWS suffered
+  a complete outage. This outage resulted in the downtime of all 
+  services hosted on NWS and the downtime of the NWS Management
+  Engine and the NWS dashboard.
+</p>
+
+<p>
+  The incident lasted 10 days and 15 hours after which it was manually 
+  resolved and all services were restored. This was NWS' first
+  outage event of 2024.
+</p>
+
+<p>
+  Since then, similar outages have occurred.
+</p>
+
+<h2>Cause</h2>
+<p>
+  NWS utilizes several tactics to ensure uptime. A component of
+  this is load balancing and failover. Due to logistical issues, 
+  only one NWS point of presence has been operating since early 
+  November 2024. This means that any issue with the remaining 
+  datacenter will result in a total outage. More points of presence 
+  are expected to be brought online in August 2024. Similar incidents are 
+  expected until then.
+</p>
+
+<p>
+  This outage lasted 10 days due to the fact that I was busy with 
+  school. I'm not super concerned about maintaining high uptime with 
+  only one server, and I'm pretty happy with NWS since we hit 100% uptime 
+  for a >365 day period. 
+</p>
+
+<p>
+  The cause of the outage was that the Xfinity ( yeah :( ) router that 
+  NWS uses in the Pottsville location encountered an issue which caused 
+  it to automatically drop all port forwards. To combat this issue, a new 
+  Ubiquiti EdgeMax router is scheduled to be installed in December 2024.
+</p>
+
+
+<h2>Fix</h2>
+<p>
+  The port forwards were restored and the router is scheduled to be replaced.
+</p>
+
+<p>Last updated on December 28th, 2024</p>
