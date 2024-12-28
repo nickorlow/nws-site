@@ -114,7 +114,7 @@ lazy_static! {
     static ref blogs: HashMap<&'static str, BlogInfo<'static>> = {
         let mut m = HashMap::new();
         m.insert(
-            "11-28-2024-postmortem", 
+            "11-28-2024-onward-postmortem", 
             BlogInfo {
                 title: "Downtime Incident Postmortem (Nov 2024 - Present)",
                 date: "December 28th, 2024",
