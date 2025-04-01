@@ -1,6 +1,14 @@
 {%- import "uptime_table.html" as scope -%}
 
 <div>
+ <script> 
+      var url = new URL(window.location.href);
+      var af = url.searchParams.get("af");
+ 
+      if (af == null || af == "true") {
+          window.location.href = "./april-fools.html";
+      }
+  </script>
   <h1 style="margin-bottom: 0px;margin-top: 0px;">Nick Web Services</h1>
   <p style="margin-top: 0px;">Pottsville, PA - Philadelphia, PA - Austin, TX</p>
 
