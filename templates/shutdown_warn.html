@@ -1,0 +1,14 @@
+{% macro shutdown_warn() %}
+<div style="border-color:#ff0000; border-width: 2px; padding: 10px;border-style: double;">
+    <h2>NOTICE: NWS has been shut down</h2>
+    <p>For various reasons, NWS had to shut down all datacenters except the Pottsville, PA location. Due to only having one point of presence, NWS has been unable to deliver reliable uptime. Furthermore, the maintenance required to run NWS has become a bit too much for me, especially since it now no longer provides any benefits over just having a server running all of my services with docker compose. </p>
+
+<p>Due to the above complications, NWS shut down on April 4th, 2025 at 4:48 PM EDT. During the time NWS was operating from 2021 - 2025, it was able to deliver consistently high uptime, including for having 100% uptime for <b>over a year</b> between the dates of 11/8/2023 and 11/28/2024.</p>
+  
+<p>In August, NWS may be able to open another datacenter, at which point it may resume operations.</p>
+
+<p>This website (and my other websites) are just being run on my homelab as docker containers under docker compose.</p>
+    
+  </div>
+
+{% endmacro %}

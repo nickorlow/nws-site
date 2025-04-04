@@ -1,14 +1,23 @@
-FROM rust:1.82 as build
+FROM rust:alpine AS builder
 
-ENV PKG_CONFIG_ALLOW_CROSS=1
+WORKDIR /app/src
+RUN USER=root
 
-WORKDIR .
-COPY . .
+RUN apk add pkgconfig openssl-dev libc-dev openssl-libs-static
+COPY ./ ./
+RUN cargo build --release
 
-RUN cargo install --path .
+FROM alpine:latest
+WORKDIR /app
+RUN apk update \
+    && apk add openssl ca-certificates
+
+EXPOSE 80
+
+COPY --from=builder /app/src/target/release/website /app/website
+COPY assets /app/assets
 
 ENV RUST_LOG=info
 ENV EXPOSE_PORT=80
 
-EXPOSE 80
-ENTRYPOINT ["website"]
+ENTRYPOINT ["/app/website"]

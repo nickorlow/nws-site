@@ -1,17 +1,11 @@
 {%- import "uptime_table.html" as scope -%}
+{%- import "shutdown_warn.html" as warn -%}
 
 <div>
- <script> 
-      var url = new URL(window.location.href);
-      var af = url.searchParams.get("af");
- 
-      if (af == null || af == "true") {
-          window.location.href = "./assets/april_fools.html";
-      }
-  </script>
   <h1 style="margin-bottom: 0px;margin-top: 0px;">Nick Web Services</h1>
   <p style="margin-top: 0px;">Pottsville, PA - Philadelphia, PA - Austin, TX</p>
 
+  {% call warn::shutdown_warn() %}
 
   <p>
     Nick Web Services is a hosting service based out of the Commonwealth of Pennsylvania 
@@ -34,6 +28,6 @@ We operate four datacenters located across three cities in two states. This infr
     have reduced uptime. This is expected to be resolved around August 2024.
   </p>
 
-  <h2>Compare us to our competitors!</h2>
-  {% call scope::uptime_table(uptime_infos) %}
+  <!--<h2>Compare us to our competitors!</h2>
+      {% call scope::uptime_table(uptime_infos) %}-->
 </div>

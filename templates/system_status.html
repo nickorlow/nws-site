@@ -1,8 +1,11 @@
 {%- import "uptime_table.html" as scope -%}
+{%- import "shutdown_warn.html" as warn -%}
 
 <h1>System Status</h1>
 
-<h2>Datacenter Status</h2>
+{% call warn::shutdown_warn() %}
+
+<!--<h2>Datacenter Status</h2>
 <p>
 The status of each of Nick Web Services's 4 
 datacenters.
@@ -23,4 +26,4 @@ Nick Web Services may be affected by factors not controlled by us such as
 bad optimization or buggy software.
 </p>
 
-{% call scope::uptime_table(svc_uptime_infos) %}
+{% call scope::uptime_table(svc_uptime_infos) %}-->
